@@ -2,11 +2,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
 
+#### This practice uses the value of delta_x = delta_y
+
 
 #Mesh
-n_side = 50
+n_side = 100
 u = np.zeros([n_side,n_side])
-epsilon_s = 0.0001                      #Tolerance in %
+epsilon_s = 0.00001                      #Tolerance in %
 alpha = 1.88                            #Value between 1 and 2
 
 
@@ -26,6 +28,7 @@ for n in range(1,1000):
             u[i,j]  = alpha * new + (1 - alpha) * old
             if u[i,j] != 0:
                 epsilon_a = np.max([epsilon_a, (np.abs(u[i,j] - old)/u[i,j])*100])
+    print(f"{n} iteration.")
     if epsilon_a < epsilon_s:
         print(f"They converged at the {n} iteration.")
         break
@@ -40,7 +43,7 @@ cm_tm = LinearSegmentedColormap.from_list("t_m",['#39C5BB','#E60033'])
 
 fig, ax = plt.subplots(facecolor = "#0B0F19")
 
-im = ax.imshow(u, cmap = cm_tm, origin = 'lower', extent = [0, 0.5, 0, 0.5]) #extent: Scale of the problem
+im = ax.imshow(u.T, cmap = cm_tm, origin = 'lower', extent = [0, 0.5, 0, 0.5]) #extent: Scale of the problem
 
 ax.grid(color = '#374151')
 ax.set_title('Laplace-Equation-Practice', color= '#FFFFFF')
