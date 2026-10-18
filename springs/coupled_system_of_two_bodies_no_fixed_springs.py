@@ -6,8 +6,7 @@ import matplotlib.animation as animation
 
 class spring_mass:
 
-    name = 'Mass-Spring'
-    axes_names = [r"$x \ \[m]$", r"$y \ \[m]$"]
+    name = 'Mass-Spring-Mass'
 
     def __init__(self,x1_0,x2_0,v1_0,v2_0,k,m_1,m_2, l_0,t_0 = 0,h=0.01): 
         self.y0 = np.array([x1_0 , x2_0, v1_0, v2_0])

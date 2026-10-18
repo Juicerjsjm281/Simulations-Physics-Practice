@@ -6,8 +6,7 @@ import matplotlib.animation as animation
 
 class spring_mass:
 
-    name = 'Mass-Spring'
-    axes_names = [r"$x \ \[m]$", r"$y \ \[m]$"]
+    name = 'Wall-Spring-Mass'
 
     def __init__(self,x_0,v_0,k,m,t_0 = 0,h=0.02): 
         self.y0 = np.array([x_0 , v_0])
@@ -62,6 +61,7 @@ fig, axs = plt.subplots(1,2,figsize = (12,5), facecolor = "#0B0F19")
 visual = axs[0]
 energy = axs[1]
 
+fig.suptitle(spring.name,color= '#FFFFFF')
 obj, = visual.plot([],[],'o', label='Mass', color = '#E60033', zorder = 3)
 spring_line, = visual.plot([],[],'-',label='Spring',color = '#39C5BB',zorder = 2)
 wall, =visual.plot([],[],'-', color = '#FFD700',zorder = 2)
