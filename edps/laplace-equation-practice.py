@@ -8,7 +8,7 @@ from matplotlib.colors import LinearSegmentedColormap
 #Mesh
 n_side = 100
 u = np.zeros([n_side,n_side])
-epsilon_s = 0.00001                      #Tolerance in %
+epsilon_s = 1e-5                     #Tolerance in %
 alpha = 1.88                            #Value between 1 and 2
 
 
@@ -56,7 +56,7 @@ for spine in ax.spines.values():
     spine.set_edgecolor('#374151')
 
 cbar = fig.colorbar(im, ax = ax)
-cbar.set_label("T [K]", color='#E5E7EB')
+cbar.set_label("T [°C]", color='#E5E7EB')
 cbar.ax.yaxis.set_tick_params(color='#E5E7EB', labelcolor='#E5E7EB')
 
 plt.show()
