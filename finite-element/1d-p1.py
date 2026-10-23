@@ -43,9 +43,10 @@ for e in range(n):
 #Projection Quality
 fig, ax = plt.subplots(facecolor = "#0B0F19")
 
-ax.plot(x, f(x), label="f(x)", color = '#39C5BB')
-ax.plot(x, U, "o-", label="u_h", color = '#E60033')
+ax.plot(x, f(x), label="$f(x)$", color = '#39C5BB')
+ax.plot(x, U, "o-", label=r"$u_h$", color = '#E60033')
 ax.set_title(rf"$||f-u_h||_{{L^2}}$: {np.sqrt(error_L2)}", color= '#FFFFFF')
+ax.grid(color = '#374151')
 ax.set_facecolor('#111827')
 ax.tick_params(colors='#9CA3AF', labelsize=10)
 ax.legend()
